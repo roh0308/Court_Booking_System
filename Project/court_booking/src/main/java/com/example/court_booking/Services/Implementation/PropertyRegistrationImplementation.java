@@ -24,6 +24,7 @@ public class PropertyRegistrationImplementation implements PropertyRegistrationS
     public ResponseEntity<String> PropertyRegistration(PropertyRegistrationDTO propertyRegistrationDTO) {
 
         Optional<User> ownerOptional=userRepository.findById(propertyRegistrationDTO.getUser_id());
+        //Extract the value
         User owner = ownerOptional.get();
         PropertyRegistration propertyOwner=new PropertyRegistration(propertyRegistrationDTO.getPropertyName(),propertyRegistrationDTO.getNoofCourts(),propertyRegistrationDTO.getTimings(),propertyRegistrationDTO.getHourlyRates());
         propertyOwner.setOwner(owner);
